@@ -9,7 +9,7 @@ export const SECRET_CRATE_MINT_ABI = [
   
   // Functions
   "function createCrate(string memory _name, string memory _description, uint256 _totalSupply, uint256 _price, uint256 _duration, uint256 _revealDelay) public returns (uint256)",
-  "function purchaseNFT(uint256 crateId, externalEuint32 amount, bytes calldata inputProof) public payable returns (uint256)",
+  "function purchaseNFT(uint256 crateId, externalEuint32 amount, externalEuint32 encryptedPrice, bytes calldata inputProof) public payable returns (uint256)",
   "function processMint(uint256 transactionId, externalEuint32 tokenId, externalEuint32 rarity, string memory encryptedMetadata) public returns (uint256)",
   "function revealNFT(uint256 tokenId) public",
   "function revealCrate(uint256 crateId) public",

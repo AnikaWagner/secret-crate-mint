@@ -23,13 +23,14 @@ export function useSecretCrateContract() {
   const purchaseNFT = async (
     crateId: number,
     amount: any, // FHE encrypted amount
+    encryptedPrice: any, // FHE encrypted price
     inputProof: string
   ) => {
     return writeContract({
       address: SECRET_CRATE_MINT_ADDRESS as `0x${string}`,
       abi: SECRET_CRATE_MINT_ABI,
       functionName: 'purchaseNFT',
-      args: [BigInt(crateId), amount, inputProof],
+      args: [BigInt(crateId), amount, encryptedPrice, inputProof],
       value: BigInt(0), // Will be calculated based on encrypted amount
     });
   };

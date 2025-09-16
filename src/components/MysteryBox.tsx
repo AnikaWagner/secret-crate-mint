@@ -35,12 +35,13 @@ const MysteryBox = ({ id, name, price, rarity, isLocked, timeToReveal }: Mystery
 
     setIsMinting(true);
     try {
-      // In a real implementation, you would encrypt the amount using FHE
-      // For now, we'll use a placeholder
+      // In a real implementation, you would encrypt the amount and price using FHE
+      // For now, we'll use placeholders for encrypted data
       const encryptedAmount = "0x0000000000000000000000000000000000000000000000000000000000000001";
+      const encryptedPrice = "0x0000000000000000000000000000000000000000000000000000000000000005"; // 0.05 ETH
       const inputProof = "0x0000000000000000000000000000000000000000000000000000000000000000";
       
-      await purchaseNFT(0, encryptedAmount, inputProof); // crateId would be dynamic
+      await purchaseNFT(0, encryptedAmount, encryptedPrice, inputProof); // crateId would be dynamic
     } catch (error) {
       console.error("Minting failed:", error);
       alert("Minting failed. Please try again.");

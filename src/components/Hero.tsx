@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowDown, Sparkles, Shield } from "lucide-react";
+import { Link } from "react-router-dom";
 import heroImage from "@/assets/mystery-hero.jpg";
 
 const Hero = () => {
@@ -52,14 +53,18 @@ const Hero = () => {
         </div>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12 animate-scale-in">
-          <Button variant="mint" size="xl" className="group">
-            <Sparkles className="w-5 h-5 group-hover:animate-spin" />
-            Start Minting
-          </Button>
+          <Link to="/mint">
+            <Button variant="mint" size="xl" className="group">
+              <Sparkles className="w-5 h-5 group-hover:animate-spin" />
+              Start Minting
+            </Button>
+          </Link>
           
-          <Button variant="mystery" size="xl">
-            Explore Collection
-          </Button>
+          <Link to="/collection">
+            <Button variant="mystery" size="xl">
+              Explore Collection
+            </Button>
+          </Link>
         </div>
 
         {/* Stats */}

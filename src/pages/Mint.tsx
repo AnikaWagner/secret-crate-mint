@@ -19,12 +19,13 @@ import {
 } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import WalletConnect from "@/components/WalletConnect";
+import { useAccount } from "wagmi";
 import { useState } from "react";
 
 const Mint = () => {
   const [selectedTier, setSelectedTier] = useState("common");
   const [mintQuantity, setMintQuantity] = useState(1);
-  const [isWalletConnected, setIsWalletConnected] = useState(false);
+  const { address, isConnected } = useAccount();
 
   const mysteryTiers = [
     {
@@ -96,7 +97,7 @@ const Mint = () => {
   };
 
   const mintingSteps = [
-    { step: 1, title: "Connect Wallet", status: isWalletConnected ? "completed" : "pending" },
+    { step: 1, title: "Connect Wallet", status: isConnected ? "completed" : "pending" },
     { step: 2, title: "Select Tier", status: selectedTier ? "completed" : "pending" },
     { step: 3, title: "Confirm Transaction", status: "pending" },
     { step: 4, title: "Mint Complete", status: "pending" }
@@ -261,9 +262,9 @@ const Mint = () => {
                     </div>
                   </div>
 
-                  <Button className="w-full" variant="mint" size="lg" disabled={!isWalletConnected}>
+                  <Button className="w-full" variant="mint" size="lg" disabled={!isConnected}>
                     <Wallet className="w-5 h-5 mr-2" />
-                    {isWalletConnected ? "Mint Now" : "Connect Wallet First"}
+                    {isConnected ? "Mint Now" : "Connect Wallet First"}
                   </Button>
                 </div>
               )}

@@ -9,9 +9,9 @@ const Navigation = () => {
 
   const navItems = [
     { href: "/", label: "Home" },
-    { href: "/about", label: "About" },
     { href: "/collection", label: "Collection" },
     { href: "/mint", label: "Mint" },
+    { href: "/about", label: "About" },
   ];
 
   return (
@@ -39,9 +39,6 @@ const Navigation = () => {
                 {item.label}
               </Link>
             ))}
-            <Button variant="mint" size="sm">
-              Connect Wallet
-            </Button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -71,9 +68,6 @@ const Navigation = () => {
                   {item.label}
                 </Link>
               ))}
-              <Button variant="mint" size="sm" className="w-fit">
-                Connect Wallet
-              </Button>
             </div>
           </div>
         )}
